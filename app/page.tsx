@@ -3,8 +3,7 @@ export default function Home() {
     <main>
       <h1>Home page!</h1>
       <br/>
-      <h2>Testing the GitHub actions</h2>
-      <h2>Testing the GitHub actions 2</h2>
+      <h2>Deployed in vercel successfully!</h2>
     </main>
   );
 }
