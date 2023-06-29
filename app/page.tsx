@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Welcome from "@/public/welcome.png";
+import TrendUp from "@/public/trend-up.svg";
+
 import TrendingPost from "@/app/components/TrendingPost";
 
 const popularPostsData = [
@@ -104,8 +106,11 @@ export default function Home(): JSX.Element {
           <Image src={Welcome} className="w-fit" alt={"Welcome!"}/>
         </div>
       </section>
-      <section className="px-5 md:px-12 lg:px-16 2xl:px-44 border-b-1 border-solid border-b-gray-200">
-        <div>Trending on QuillPen</div>
+      <section className="px-5 py-11 md:px-12 lg:px-16 2xl:px-44 border-b-1 border-solid border-b-gray-200">
+        <div className="flex mb-3">
+          <Image src={TrendUp} alt="Trending posts" width={24}/>
+          <p className="font-bold ms-3">Trending on QuillPen</p>
+        </div>
         <div className="grid md:grid-cols-2 md:grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 gap-x-8 gap-y-5">
           {popularPostsData.map((post, id) => {
             return <TrendingPost
