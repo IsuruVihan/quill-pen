@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,11 +10,29 @@
     width: 26rem;
   }
 
+  .w-500px {
+    width: 500px;
+  }
+
+  .w-550px {
+    width: 550px;
+  }
+
   .h-75px {
     height: 75px;
   }
 
   .border-b-1 {
     border-bottom-width: 1px;
+  }
+
+  .text-85px {
+    font-size: 85px;
+    line-height: 1;
+  }
+
+  .text-106px {
+    font-size: 106px;
+    line-height: 1;
   }
 }

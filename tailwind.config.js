@@ -5,6 +5,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {},
+  theme: {
+    fontFamily: {
+      NunitoSans: ["Nunito Sans", "sans-serif"],
+      PTSerif: ["PT Serif", "sans-serif"],
+    },
+  },
   plugins: [],
 }
