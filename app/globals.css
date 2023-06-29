@@ -6,6 +6,12 @@
 @tailwind utilities;
 
 @layer utilities {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   .w-26rem {
     width: 26rem;
   }
