@@ -14,6 +14,8 @@ const popularPostsData = [
       link: "/",
     },
     title: "What Really Happens to a Human Body at Titanic Depths",
+    subtitle: "…there was a lot announced at Config 2023!",
+    category: "Category",
     link: "/",
     date: "Jun 23",
     minutes: "4",
@@ -29,6 +31,8 @@ const popularPostsData = [
       link: "/",
     },
     title: "America Failed Generation X",
+    subtitle: "Diary of an Interstellar Voyage: Part 8 (June 16, 2023)",
+    category: "Category",
     link: "/",
     date: "Jun 23",
     minutes: "4",
@@ -40,6 +44,8 @@ const popularPostsData = [
       link: "/",
     },
     title: "What Really Happens to a Human Body at Titanic Depths",
+    subtitle: "Ten lessons I learned the sweaty way so you don’t have to",
+    category: "Category",
     link: "/",
     date: "Jun 23",
     minutes: "4",
@@ -51,6 +57,8 @@ const popularPostsData = [
       link: "/",
     },
     title: "Find a Needle in the Ocean",
+    subtitle: "Creativity, memory and our relationship with time",
+    category: "Category",
     link: "/",
     date: "Jun 23",
     minutes: "4",
@@ -62,6 +70,8 @@ const popularPostsData = [
       link: "/",
     },
     title: "What Really Happens to a Human Body at Titanic Depths",
+    subtitle: "Is endless scrolling evil? How can we balance ease-of-use with what’s best for humanity?",
+    category: "Category",
     link: "/",
     date: "Jun 23",
     minutes: "4",
@@ -77,6 +87,8 @@ const popularPostsData = [
       link: "/",
     },
     title: "Register now for Medium Day",
+    subtitle: "What I learned from introducing myself to a stranger every day for a month",
+    category: "Category",
     link: "/",
     date: "Jun 23",
     minutes: "4",
@@ -123,13 +135,28 @@ export default function Home(): JSX.Element {
               date={post.date}
               minutes={post.minutes}
               membersOnly={post.membersOnly}
+              bookmarkingEnabled={false}
             />;
           })}
         </div>
       </section>
       <section className="px-5 py-11 md:px-12 lg:px-16 2xl:px-44 flex flex-col-reverse lg:flex-row">
-        <div className="border-2 border-solid border-red-600 lg:flex-5">
-
+        <div className="border-2 border-solid border-red-600 lg:flex-5 flex flex-col gap-10">
+          {popularPostsData.map((post, id) => {
+            return <TrendingPost
+              key={id}
+              author={post.author}
+              publication={post.publication}
+              title={post.title}
+              subtitle={post.subtitle}
+              category={post.category}
+              link={post.link}
+              date={post.date}
+              minutes={post.minutes}
+              membersOnly={post.membersOnly}
+              bookmarkingEnabled={true}
+            />;
+          })}
         </div>
         <footer className="border-2 border-solid border-blue-600 lg:flex-3">
           Footer
