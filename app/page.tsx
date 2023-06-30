@@ -140,8 +140,9 @@ export default function Home(): JSX.Element {
           })}
         </div>
       </section>
-      <section className="px-5 py-11 md:px-12 lg:px-16 2xl:px-44 flex flex-col-reverse lg:flex-row">
-        <div className="border-2 border-solid border-red-600 lg:flex-5 flex flex-col gap-10">
+      <section className="px-5 py-16 md:px-12 lg:px-16 2xl:px-44 flex flex-col-reverse lg:flex-row">
+        {/*<div className="border-2 border-solid border-red-600 lg:flex-5 flex flex-col gap-12">*/}
+        <div className="lg:flex-5 flex flex-col gap-12">
           {popularPostsData.map((post, id) => {
             return <TrendingPost
               key={id}
@@ -158,7 +159,8 @@ export default function Home(): JSX.Element {
             />;
           })}
         </div>
-        <footer className="border-2 border-solid border-blue-600 lg:flex-3">
+        {/*<footer className="border-2 border-solid border-blue-600 lg:flex-3">*/}
+        <footer className="lg:flex-3">
           Footer
         </footer>
       </section>

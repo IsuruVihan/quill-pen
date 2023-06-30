@@ -50,8 +50,8 @@ export default function TrendingPost(props: Props): JSX.Element {
       {no && <div className="flex-1 sm:flex-1 xl:flex-2 font-extrabold text-gray-200 text-3xl tracking-tighter">
         0{no}
       </div>}
-      <div className="pt-1.5 flex-5 sm:flex-11 md:flex-5 lg:flex-7 xl:flex-11 border-2 border-solid border-amber-600">
-        <div className="flex items-center gap-2 h-5 pb-3">
+      <div className="flex-5 sm:flex-11 md:flex-5 lg:flex-7 xl:flex-11 flex flex-col justify-evenly gap-1.5">
+        <div className="flex items-center gap-2 h-5">
           <Link href={publication ? publication.link : author.link}>
             <Image className="rounded-full" src={Avatar} alt="Avatar" width={20} height={20}/>
           </Link>
@@ -67,13 +67,15 @@ export default function TrendingPost(props: Props): JSX.Element {
             </>}
           </p>
         </div>
-        <Link href={link}>
-          <p className="font-extrabold leading-snug">{title}</p>
-        </Link>
-        {subtitle && <Link href={link}>
-          <p className="font-semibold leading-snug text-gray-500">{subtitle}</p>
-        </Link>}
-        <div className="flex flex-row justify-between pt-2">
+        <div>
+          <Link href={link}>
+            <p className="font-extrabold leading-snug">{title}</p>
+          </Link>
+          {subtitle && <Link href={link}>
+            <p className="font-semibold leading-snug text-gray-500">{subtitle}</p>
+          </Link>}
+        </div>
+        <div className="flex flex-row justify-between">
           <div className="h-5 flex gap-2 items-center font-normal text-gray-500 text-sm">
             <p>{date}</p>
             <p>|</p>
