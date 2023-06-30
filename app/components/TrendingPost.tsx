@@ -116,18 +116,12 @@ export default function TrendingPost(props: Props): JSX.Element {
                 `hidden md:block lg:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
               }
             >{formatBlogTitle("md")}</p>
-            <p
-              className={
-                // `hidden sm:block md:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
-                `hidden sm:block md:hidden font-extrabold leading-snug text-md`
-              }
-            >{formatBlogTitle("sm")}</p>
-            <p
-              className={
-                // `block sm:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
-                `block sm:hidden font-extrabold leading-snug text-md`
-              }
-            >{formatBlogTitle("xs")}</p>
+            <p className="hidden sm:block md:hidden font-extrabold leading-snug text-md">{
+              formatBlogTitle("sm")}
+            </p>
+            <p className="block sm:hidden font-extrabold leading-snug text-md">
+              {formatBlogTitle("xs")}
+            </p>
           </Link>
           {subtitle && <Link href={link}>
             <p className="font-semibold leading-snug text-gray-500">
@@ -142,9 +136,9 @@ export default function TrendingPost(props: Props): JSX.Element {
             <p>{date}</p>
             <p>|</p>
             <p>{minutes} minute{parseInt(minutes) > 1 ? 's' : ''} read</p>
-            {category && <p>|</p>}
+            {category && <p className="hidden sm:block">|</p>}
             {category &&
-              <Link href={"/"}>
+              <Link href={"/"} className="hidden sm:block">
                 <p className="bg-gray-100 p-1 rounded-2xl hover:bg-gray-200 transition-colors duration-300 ease-in-out">
                   {category}
                 </p>
