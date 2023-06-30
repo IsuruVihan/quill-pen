@@ -56,8 +56,8 @@ export default function TrendingPost(props: Props): JSX.Element {
       "xl": { regular: 85, large: 92, },
       "lg": { regular: 102, large: 50, },
       "md": { regular: 73, large: 51, },
-      "sm": { regular: 153, large: 73, },
-      "xs": { regular: 67, large: 25, },
+      "sm": { regular: 153, large: 106, },
+      "xs": { regular: 67, large: 40, },
     };
 
     if (title.size === "regular") {
@@ -118,12 +118,14 @@ export default function TrendingPost(props: Props): JSX.Element {
             >{formatBlogTitle("md")}</p>
             <p
               className={
-                `hidden sm:block md:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+                // `hidden sm:block md:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+                `hidden sm:block md:hidden font-extrabold leading-snug text-md`
               }
             >{formatBlogTitle("sm")}</p>
             <p
               className={
-                `block sm:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+                // `block sm:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+                `block sm:hidden font-extrabold leading-snug text-md`
               }
             >{formatBlogTitle("xs")}</p>
           </Link>
