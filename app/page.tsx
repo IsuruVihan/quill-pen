@@ -127,74 +127,14 @@ export default function Home(): JSX.Element {
           })}
         </div>
       </section>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis mauris eros, vel faucibus dolor auctor
-        nec. Donec eleifend lacus finibus malesuada fermentum. Nullam turpis dui, convallis et justo id, efficitur
-        vestibulum velit. Donec fermentum, urna eget efficitur cursus, odio orci eleifend sapien, vel scelerisque sapien
-        sapien consequat justo. Fusce a laoreet metus. Nunc sollicitudin ullamcorper lorem vel efficitur. Aliquam
-        tincidunt aliquet blandit. Fusce imperdiet et magna eu varius. Donec id nulla ac tellus hendrerit sagittis.
-        Nullam augue ipsum, interdum non enim sit amet, dapibus aliquam lacus.
-        <br/><br/><br/><br/><br/>
-        Praesent mattis porttitor magna, sit amet mollis nisi luctus ac. Donec nec fringilla ante, eget sollicitudin
-        arcu. Praesent ut volutpat nulla. Vestibulum convallis sollicitudin lacus nec ultricies. Aliquam erat volutpat.
-        Morbi sed semper magna. Quisque venenatis turpis sit amet arcu porttitor, id fringilla metus convallis. Nam
-        ornare id velit sed mollis. Donec magna elit, tristique eu sem nec, sollicitudin vulputate sem. Ut sagittis
-        velit tortor, a placerat ipsum venenatis at. Ut consectetur erat a porta faucibus.
-        <br/><br/><br/><br/><br/>
-        Praesent dapibus mauris libero, non blandit arcu maximus eleifend. Integer sed pretium lectus, eget porta felis.
-        Mauris non felis in neque aliquam consectetur at ac metus. In fermentum, augue ut rhoncus imperdiet, ipsum enim
-        semper ex, nec consequat dui nunc sed elit. Proin ornare ultricies felis id egestas. Vivamus blandit eleifend
-        consequat. Nam laoreet tincidunt fringilla. Aliquam ultricies arcu ac lorem pretium, sit amet aliquam felis
-        congue. Morbi id mattis nulla, vitae porttitor nunc. Aliquam non ante sapien.
-        <br/><br/><br/><br/><br/>
-        Curabitur sed orci odio. Mauris hendrerit tellus dolor, ac lobortis urna ultrices eu. Proin accumsan venenatis
-        nulla, eget aliquet lacus laoreet eget. In venenatis tortor fermentum nisl mattis condimentum. Nunc pellentesque
-        augue ut lectus tempor, id viverra eros accumsan. Aenean porta, mi vitae bibendum facilisis, quam felis rhoncus
-        risus, sit amet pellentesque purus mi at nibh. Morbi eget sapien a felis laoreet iaculis. Donec tincidunt
-        faucibus est a malesuada. Aliquam vitae mauris metus. Phasellus molestie ligula ut velit dignissim pharetra.
-        Nunc non dictum nisi, non iaculis massa. Aenean dapibus, est id blandit rhoncus, metus leo placerat dolor, in
-        semper elit risus id nunc. Integer blandit ligula dolor, eget blandit est tempor ut.
-        <br/><br/><br/><br/><br/>
-        Sed a ultricies mauris, eget aliquet libero. Maecenas erat leo, scelerisque a odio eget, ullamcorper suscipit
-        ligula. Phasellus venenatis dictum arcu, sed molestie turpis accumsan sed. Mauris in nulla eget magna lobortis
-        gravida non a orci. Donec vitae velit turpis. Praesent ut felis sed turpis euismod ullamcorper. Nullam quis mi
-        et urna maximus porta. Donec lobortis sit amet diam et posuere. Suspendisse non tortor dolor. Fusce tincidunt
-        sed ante ac ornare. Curabitur efficitur massa id lectus cursus hendrerit. Nulla eget nibh ac justo interdum
-        tempus a ac eros.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis mauris eros, vel faucibus dolor auctor
-        nec. Donec eleifend lacus finibus malesuada fermentum. Nullam turpis dui, convallis et justo id, efficitur
-        vestibulum velit. Donec fermentum, urna eget efficitur cursus, odio orci eleifend sapien, vel scelerisque sapien
-        sapien consequat justo. Fusce a laoreet metus. Nunc sollicitudin ullamcorper lorem vel efficitur. Aliquam
-        tincidunt aliquet blandit. Fusce imperdiet et magna eu varius. Donec id nulla ac tellus hendrerit sagittis.
-        Nullam augue ipsum, interdum non enim sit amet, dapibus aliquam lacus.
-        <br/><br/><br/><br/><br/>
-        Praesent mattis porttitor magna, sit amet mollis nisi luctus ac. Donec nec fringilla ante, eget sollicitudin
-        arcu. Praesent ut volutpat nulla. Vestibulum convallis sollicitudin lacus nec ultricies. Aliquam erat volutpat.
-        Morbi sed semper magna. Quisque venenatis turpis sit amet arcu porttitor, id fringilla metus convallis. Nam
-        ornare id velit sed mollis. Donec magna elit, tristique eu sem nec, sollicitudin vulputate sem. Ut sagittis
-        velit tortor, a placerat ipsum venenatis at. Ut consectetur erat a porta faucibus.
-        <br/><br/><br/><br/><br/>
-        Praesent dapibus mauris libero, non blandit arcu maximus eleifend. Integer sed pretium lectus, eget porta felis.
-        Mauris non felis in neque aliquam consectetur at ac metus. In fermentum, augue ut rhoncus imperdiet, ipsum enim
-        semper ex, nec consequat dui nunc sed elit. Proin ornare ultricies felis id egestas. Vivamus blandit eleifend
-        consequat. Nam laoreet tincidunt fringilla. Aliquam ultricies arcu ac lorem pretium, sit amet aliquam felis
-        congue. Morbi id mattis nulla, vitae porttitor nunc. Aliquam non ante sapien.
-        <br/><br/><br/><br/><br/>
-        Curabitur sed orci odio. Mauris hendrerit tellus dolor, ac lobortis urna ultrices eu. Proin accumsan venenatis
-        nulla, eget aliquet lacus laoreet eget. In venenatis tortor fermentum nisl mattis condimentum. Nunc pellentesque
-        augue ut lectus tempor, id viverra eros accumsan. Aenean porta, mi vitae bibendum facilisis, quam felis rhoncus
-        risus, sit amet pellentesque purus mi at nibh. Morbi eget sapien a felis laoreet iaculis. Donec tincidunt
-        faucibus est a malesuada. Aliquam vitae mauris metus. Phasellus molestie ligula ut velit dignissim pharetra.
-        Nunc non dictum nisi, non iaculis massa. Aenean dapibus, est id blandit rhoncus, metus leo placerat dolor, in
-        semper elit risus id nunc. Integer blandit ligula dolor, eget blandit est tempor ut.
-        <br/><br/><br/><br/><br/>
-        Sed a ultricies mauris, eget aliquet libero. Maecenas erat leo, scelerisque a odio eget, ullamcorper suscipit
-        ligula. Phasellus venenatis dictum arcu, sed molestie turpis accumsan sed. Mauris in nulla eget magna lobortis
-        gravida non a orci. Donec vitae velit turpis. Praesent ut felis sed turpis euismod ullamcorper. Nullam quis mi
-        et urna maximus porta. Donec lobortis sit amet diam et posuere. Suspendisse non tortor dolor. Fusce tincidunt
-        sed ante ac ornare. Curabitur efficitur massa id lectus cursus hendrerit. Nulla eget nibh ac justo interdum
-        tempus a ac eros.
-      </p>
+      <section className="px-5 py-11 md:px-12 lg:px-16 2xl:px-44 flex flex-col-reverse lg:flex-row">
+        <div className="border-2 border-solid border-red-600 lg:flex-5">
+
+        </div>
+        <footer className="border-2 border-solid border-blue-600 lg:flex-3">
+          Footer
+        </footer>
+      </section>
     </main>
   );
 }
