@@ -86,8 +86,19 @@ const popularPostsData = [
       name: "The Medium Blog",
       link: "/",
     },
-    title: "Register now for Medium Day",
-    subtitle: "What I learned from introducing myself to a stranger every day for a month",
+    title: "It is a long established fact that a reader will be distracted by the readable content of a page when " +
+      "looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of " +
+      "letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop " +
+      "publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for " +
+      "'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the " +
+      "years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    // subtitle: "What I learned from introducing myself to a stranger every day for a month",
+    subtitle: "It is a long established fact that a reader will be distracted by the readable content of a page when " +
+      "looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of " +
+      "letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop " +
+      "publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for " +
+      "'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the " +
+      "years, sometimes by accident, sometimes on purpose (injected humour and the like).",
     category: "Category",
     link: "/",
     date: "Jun 23",
@@ -130,7 +141,7 @@ export default function Home(): JSX.Element {
               no={id+1}
               author={post.author}
               publication={post.publication}
-              title={post.title}
+              title={{content: post.title, size: "regular",}}
               link={post.link}
               date={post.date}
               minutes={post.minutes}
@@ -148,8 +159,8 @@ export default function Home(): JSX.Element {
               key={id}
               author={post.author}
               publication={post.publication}
-              title={post.title}
-              subtitle={post.subtitle}
+              title={{content: post.title, size: "large",}}
+              subtitle={{content: post.subtitle,}}
               category={post.category}
               link={post.link}
               date={post.date}

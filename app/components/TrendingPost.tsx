@@ -19,8 +19,13 @@ type Props = {
     // image
     link: string,
   },
-  title: string,
-  subtitle?: string,
+  title: {
+    content: string,
+    size: "regular" | "large",
+  },
+  subtitle?: {
+    content: string,
+  },
   // thumbnail,
   category?: string,
   link: string,
@@ -44,6 +49,28 @@ export default function TrendingPost(props: Props): JSX.Element {
     membersOnly,
     bookmarkingEnabled,
   } = props;
+
+  const formatBlogTitle = (screen: "2xl" | "xl" | "lg" | "md" | "sm" | "xs") : string => {
+    const maxLengths = {
+      "2xl": { regular: 85, large: 93, },
+      "xl": { regular: 85, large: 92, },
+      "lg": { regular: 102, large: 50, },
+      "md": { regular: 73, large: 51, },
+      "sm": { regular: 153, large: 73, },
+      "xs": { regular: 67, large: 25, },
+    };
+
+    if (title.size === "regular") {
+      if (title.content.length > maxLengths[screen].regular) {
+        return title.content.substring(0, maxLengths[screen].regular) + "...";
+      }
+      return title.content.substring(0, maxLengths[screen].regular);
+    }
+    if (title.content.length > maxLengths[screen].large) {
+      return title.content.substring(0, maxLengths[screen].large) + "...";
+    }
+    return title.content.substring(0, maxLengths[screen].large);
+  }
 
   return (
     <div className="flex flex-row">
@@ -69,10 +96,43 @@ export default function TrendingPost(props: Props): JSX.Element {
         </div>
         <div>
           <Link href={link}>
-            <p className="font-extrabold leading-snug">{title}</p>
+            <p
+              className={
+                `hidden 2xl:block font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("2xl")}</p>
+            <p
+              className={
+                `hidden xl:block 2xl:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("xl")}</p>
+            <p
+              className={
+                `hidden lg:block xl:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("lg")}</p>
+            <p
+              className={
+                `hidden md:block lg:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("md")}</p>
+            <p
+              className={
+                `hidden sm:block md:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("sm")}</p>
+            <p
+              className={
+                `block sm:hidden font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("xs")}</p>
           </Link>
           {subtitle && <Link href={link}>
-            <p className="font-semibold leading-snug text-gray-500">{subtitle}</p>
+            <p className="font-semibold leading-snug text-gray-500">
+              {subtitle.content.length > 50 ?
+                `${subtitle.content.substring(0, 50)}...` : subtitle.content
+              }
+            </p>
           </Link>}
         </div>
         <div className="flex flex-row justify-between">
@@ -96,7 +156,9 @@ export default function TrendingPost(props: Props): JSX.Element {
         </div>
       </div>
       {subtitle && <div className="flex-5 flex justify-center">
-        <Image src={Thumbnail} alt={title} width={200}/>
+        <div>
+          <Image src={Thumbnail} alt={title.content} width={200}/>
+        </div>
       </div>}
     </div>
   );
