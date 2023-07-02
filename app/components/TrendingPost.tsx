@@ -4,9 +4,11 @@ import Link from "next/link";
 
 import Avatar from "@/public/avatar.jpg";
 import Star from "@/public/star.png";
+import Bookmark from "@/public/bookmark.svg";
+import Thumbnail from "@/public/post-thumbnail.jpg";
 
 type Props = {
-  no: number,
+  no?: number,
   author: {
     name: string,
     // image
@@ -17,22 +19,77 @@ type Props = {
     // image
     link: string,
   },
-  title: string,
+  title: {
+    content: string,
+    size: "regular" | "large",
+  },
+  subtitle?: {
+    content: string,
+  },
+  // thumbnail,
+  category?: string,
   link: string,
   date: string,
   minutes: string,
   membersOnly: boolean,
+  bookmarkingEnabled: boolean,
 };
 
 export default function TrendingPost(props: Props): JSX.Element {
-  const {no, author, publication, title, link, date, minutes, membersOnly} = props;
+  const {
+    no,
+    author,
+    publication,
+    title,
+    subtitle,
+    category,
+    link,
+    date,
+    minutes,
+    membersOnly,
+    bookmarkingEnabled,
+  } = props;
+
+  const formatBlogTitle = (screen: "2xl" | "xl" | "lg" | "md" | "sm" | "xs") : string => {
+    const maxLengths = {
+      "2xl": { regular: 85, large: 90, },
+      "xl": { regular: 85, large: 90, },
+      "lg": { regular: 100, large: 50, },
+      "md": { regular: 70, large: 80, },
+      "sm": { regular: 150, large: 120, },
+      "xs": { regular: 60, large: 35, },
+    };
+
+    if (title.size === "regular") {
+      if (title.content.length > maxLengths[screen].regular) {
+        return title.content.substring(0, maxLengths[screen].regular) + "...";
+      }
+      return title.content.substring(0, maxLengths[screen].regular);
+    }
+    if (title.content.length > maxLengths[screen].large) {
+      return title.content.substring(0, maxLengths[screen].large) + "...";
+    }
+    return title.content.substring(0, maxLengths[screen].large);
+  }
+
+  const formatBlogSubtitle = (screen: "2xl" | "xl" | "lg" | "md") : string => {
+    const maxLengths = {"2xl": 150, "xl": 140, "lg": 100, "md": 130};
+
+    if (subtitle) {
+      if (subtitle.content.length > maxLengths[screen]) {
+        return subtitle.content.substring(0, maxLengths[screen]) + "...";
+      }
+      return subtitle.content.substring(0, maxLengths[screen]);
+    }
+    return "";
+  }
 
   return (
     <div className="flex flex-row">
-      <div className="flex-1 sm:flex-1 xl:flex-2 font-extrabold text-gray-200 text-3xl tracking-tighter">
+      {no && <div className="mr-5 font-extrabold text-gray-200 text-3xl tracking-tighter">
         0{no}
-      </div>
-      <div className="pt-1.5 flex-5 sm:flex-11 md:flex-5 lg:flex-7 xl:flex-11">
+      </div>}
+      <div className="flex-3 sm:flex-5 md:flex-2 lg:flex-7 xl:flex-7 2xl:flex-5 flex flex-col justify-evenly gap-1.5">
         <div className="flex items-center gap-2 h-5">
           <Link href={publication ? publication.link : author.link}>
             <Image className="rounded-full" src={Avatar} alt="Avatar" width={20} height={20}/>
@@ -49,18 +106,80 @@ export default function TrendingPost(props: Props): JSX.Element {
             </>}
           </p>
         </div>
-        <Link href={link}>
-          <p className="font-extrabold leading-snug py-2">{title}</p>
-        </Link>
-        <div className="h-5 flex gap-2 items-center font-semibold text-gray-500 text-sm">
-          <p>{date}</p>
-          <p>|</p>
-          <p>{minutes} minutes read</p>
-          {membersOnly && <div className="py-auto">
-            <Image src={Star} alt="Members only" width={13} height={13}/>
-          </div>}
+        <div>
+          <Link href={link}>
+            <p
+              className={
+                `hidden 2xl:block font-extrabold leading-snug ${title.size === "regular" ? "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("2xl")}</p>
+            <p
+              className={
+                `hidden xl:block 2xl:hidden font-extrabold leading-snug ${title.size === "regular" ? 
+                  "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("xl")}</p>
+            <p
+              className={
+                `hidden lg:block xl:hidden font-extrabold leading-snug ${title.size === "regular" ? 
+                  "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("lg")}</p>
+            <p
+              className={
+                `hidden md:block lg:hidden font-extrabold leading-snug ${title.size === "regular" ? 
+                  "text-md" : "text-2xl"}`
+              }
+            >{formatBlogTitle("md")}</p>
+            <p className="hidden sm:block md:hidden font-extrabold leading-snug text-md">{
+              formatBlogTitle("sm")}
+            </p>
+            <p className="block sm:hidden font-extrabold leading-snug text-md">
+              {formatBlogTitle("xs")}
+            </p>
+          </Link>
+          {subtitle && <Link href={link} className="hidden md:block">
+            <p className="hidden 2xl:block font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("2xl")}
+            </p>
+            <p className="hidden xl:block 2xl:hidden font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("xl")}
+            </p>
+            <p className="hidden lg:block xl:hidden font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("lg")}
+            </p>
+            <p className="hidden md:block lg:hidden font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("md")}
+            </p>
+          </Link>}
+        </div>
+        <div className="flex flex-row justify-between">
+          <div className="h-5 flex gap-1 sm:gap-2 items-center font-normal text-gray-500 text-sm">
+            <p>{date}</p>
+            <p>|</p>
+            <p>{minutes} min read</p>
+            {category && <p className="hidden sm:block">|</p>}
+            {category &&
+              <Link href={"/"} className="hidden sm:block">
+                <p className="bg-gray-100 p-1 rounded-2xl hover:bg-gray-200 transition-colors duration-300 ease-in-out">
+                  {category}
+                </p>
+              </Link>
+            }
+            {membersOnly && <div className="py-auto">
+              <Image src={Star} alt="Members only" width={13} height={13}/>
+            </div>}
+          </div>
+          {bookmarkingEnabled && <Image src={Bookmark} alt={"Add bookmark"} className="cursor-pointer" width={30}/>}
         </div>
       </div>
+      {subtitle &&
+        <div className="flex-2 sm:flex-2 md:flex-1 lg:flex-4 xl:flex-3 2xl:flex-2 flex justify-end items-center">
+          <Image src={Thumbnail} alt={title.content} className="hidden md:block" width={200}/>
+          <Image src={Thumbnail} alt={title.content} className="hidden sm:block md:hidden" width={150}/>
+          <Image src={Thumbnail} alt={title.content} className="block sm:hidden" height={100}/>
+        </div>
+      }
     </div>
   );
 }
