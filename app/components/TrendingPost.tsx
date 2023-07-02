@@ -52,12 +52,12 @@ export default function TrendingPost(props: Props): JSX.Element {
 
   const formatBlogTitle = (screen: "2xl" | "xl" | "lg" | "md" | "sm" | "xs") : string => {
     const maxLengths = {
-      "2xl": { regular: 170, large: 95, },
+      "2xl": { regular: 85, large: 95, },
       "xl": { regular: 85, large: 90, },
-      "lg": { regular: 102, large: 50, },
-      "md": { regular: 73, large: 80, },
-      "sm": { regular: 153, large: 120, },
-      "xs": { regular: 67, large: 35, },
+      "lg": { regular: 100, large: 50, },
+      "md": { regular: 70, large: 80, },
+      "sm": { regular: 150, large: 120, },
+      "xs": { regular: 60, large: 35, },
     };
 
     if (title.size === "regular") {
@@ -74,7 +74,7 @@ export default function TrendingPost(props: Props): JSX.Element {
 
   return (
     <div className="flex flex-row">
-      {no && <div className="flex-3 sm:flex-1 xl:flex-2 font-extrabold text-gray-200 text-3xl tracking-tighter">
+      {no && <div className="mr-5 font-extrabold text-gray-200 text-3xl tracking-tighter">
         0{no}
       </div>}
       <div className="flex-3 sm:flex-5 md:flex-2 lg:flex-7 xl:flex-7 2xl:flex-5 flex flex-col justify-evenly gap-1.5">
