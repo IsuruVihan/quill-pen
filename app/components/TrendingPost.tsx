@@ -52,7 +52,7 @@ export default function TrendingPost(props: Props): JSX.Element {
 
   const formatBlogTitle = (screen: "2xl" | "xl" | "lg" | "md" | "sm" | "xs") : string => {
     const maxLengths = {
-      "2xl": { regular: 85, large: 95, },
+      "2xl": { regular: 85, large: 90, },
       "xl": { regular: 85, large: 90, },
       "lg": { regular: 100, large: 50, },
       "md": { regular: 70, large: 80, },
