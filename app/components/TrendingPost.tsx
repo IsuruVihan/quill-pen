@@ -72,6 +72,18 @@ export default function TrendingPost(props: Props): JSX.Element {
     return title.content.substring(0, maxLengths[screen].large);
   }
 
+  const formatBlogSubtitle = (screen: "2xl" | "xl" | "lg" | "md") : string => {
+    const maxLengths = {"2xl": 150, "xl": 140, "lg": 100, "md": 130};
+
+    if (subtitle) {
+      if (subtitle.content.length > maxLengths[screen]) {
+        return subtitle.content.substring(0, maxLengths[screen]) + "...";
+      }
+      return subtitle.content.substring(0, maxLengths[screen]);
+    }
+    return "";
+  }
+
   return (
     <div className="flex flex-row">
       {no && <div className="mr-5 font-extrabold text-gray-200 text-3xl tracking-tighter">
@@ -127,10 +139,17 @@ export default function TrendingPost(props: Props): JSX.Element {
             </p>
           </Link>
           {subtitle && <Link href={link} className="hidden md:block">
-            <p className="font-semibold leading-snug text-gray-500">
-              {subtitle.content.length > 50 ?
-                `${subtitle.content.substring(0, 50)}...` : subtitle.content
-              }
+            <p className="hidden 2xl:block font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("2xl")}
+            </p>
+            <p className="hidden xl:block 2xl:hidden font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("xl")}
+            </p>
+            <p className="hidden lg:block xl:hidden font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("lg")}
+            </p>
+            <p className="hidden md:block lg:hidden font-semibold leading-snug text-gray-500">
+              {formatBlogSubtitle("md")}
             </p>
           </Link>}
         </div>
