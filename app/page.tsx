@@ -107,7 +107,7 @@ const popularPostsData = [
   },
 ];
 
-export default function Home(): JSX.Element {
+export default async function Home(): Promise<JSX.Element> {
   return (
     <main>
       <section className="px-5 md:px-12 lg:px-16 2xl:px-44 border-b-1 border-solid border-b-black bg-amber-400
