@@ -1,7 +1,9 @@
 import './globals.css'
 
-import Navbar from './components/Navbar'
 import React from "react";
+
+import Navbar from './components/Navbar';
+import AuthProvider from "@/app/context/AuthProvider";
 
 export const metadata = {
   title: 'QuillPen – Where good ideas find you.',
@@ -9,18 +11,18 @@ export const metadata = {
     'voices can share their writing on any topic.',
 }
 
-export default function RootLayout({
-  children,
-}: {
+export default function RootLayout({children}: {
   children: React.ReactNode
 }) {
   return (
     <html lang="en">
       <body className="font-NunitoSans tracking-tight">
-        <Navbar/>
-        <main>
-          {children}
-        </main>
+        <AuthProvider>
+          <Navbar/>
+          <main>
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   )
